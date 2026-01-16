@@ -109,7 +109,7 @@ def login_and_get_token(session: requests.Session) -> bool:
     payload = {
         "jsonrpc": "2.0",
         "id": 1,
-        "method": LOGIN_METHOD,  # typically "login"
+        "method": LOGIN_METHOD,
         "params": {"username": ROUTER_USERNAME, "password": ROUTER_PASSWORD},
     }
     headers = dict(COMMON_HEADERS)  # no Authorization for login
@@ -131,7 +131,7 @@ def login_and_get_token(session: requests.Session) -> bool:
         COOKIES["token"] = sid
         return True
 
-    # Some firmwares also set sid/token as a cookie; try that too
+    # Some firmwares also set sid/token as a cookie
     token_cookie = r.cookies.get("token")
     if token_cookie:
         COOKIES["token"] = token_cookie
