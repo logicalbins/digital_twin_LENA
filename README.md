@@ -6,8 +6,8 @@ This repository models a digital twin of the **5G NR network deployed in the Cum
 an indoor office mixed scenario with a **single gNB** covering an
 approximately **10 × 10 m²** area.
 
-
 ## Repository Structure
+
 ```
 ├── data_ingestion/
 │ └── client_v3.py
@@ -19,6 +19,7 @@ approximately **10 × 10 m²** area.
 ## Components
 
 ### data_ingestion/client_v3.py
+
 Python client for collecting network measurements from a live 5G setup.
 
 - Collects KPIs such as:
@@ -29,12 +30,15 @@ Python client for collecting network measurements from a live 5G setup.
 - Intended to run on a UE-side measurement device
 
 ### cttc-nr-mimo-demo.cc
+
 LENA (ns-3) demonstrating:
+
 - 5G NR MIMO configuration
 - Beamforming and scheduler behavior
 - Used as a basis for digital twin calibration and evaluation
 
 ### rem-example.cc
+
 LENA (ns-3) radio environment mapping (REM) example.
 
 - Generates SINR / interference heatmaps
@@ -70,6 +74,15 @@ ns-3/
   └── examples/
    ├── cttc-nr-mimo-demo.cc
    └── rem-example.cc
+```
+
+### Run an example
+
+Use the ns3-runner to execute the simulation
+
+```
+./ns3 run cttc-nr-mimo-demo
+./ns3 run rem-example
 ```
 
 ## Notes
