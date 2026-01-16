@@ -47,7 +47,7 @@ COMMON_HEADERS = {
     "Connection": "keep-alive",
 }
 
-# Try several Authorization header styles; some firmware accepts only one of these
+# Try several Authorization header styles
 AUTH_VARIANTS = [
     lambda t: {"Authorization": f"token={t}"} if t else {},
     lambda t: {"Authorization": t} if t else {},

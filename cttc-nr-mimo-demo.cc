@@ -163,7 +163,7 @@ main(int argc, char* argv[])
     Time ulStart = dlStop + MilliSeconds(200);
     Time ulStop  = simTime;
 
-    // Skip warm-up parts if you want (tweak offsets as you like)
+    // Skip warm-up parts
     g_dlWinStart = dlStart + warmupTimeDL;
     g_dlWinStop  = dlStop;
 
@@ -705,7 +705,7 @@ main(int argc, char* argv[])
 
     outFile.setf(std::ios_base::fixed);
 
-    // ---- Windowed goodput (exactly within your windows) ----
+    // ---- Windowed goodput ----
     double dlWinDur = (g_dlWinStop - g_dlWinStart).GetSeconds();
     double ulWinDur = (g_ulWinStop - g_ulWinStart).GetSeconds();
     if (dlWinDur <= 0.0) dlWinDur = 1e-9;
@@ -714,7 +714,7 @@ main(int argc, char* argv[])
     double dlGoodputMbps = g_dlBytesWin * 8.0 / dlWinDur / 1e6;
     double ulGoodputMbps = g_ulBytesWin * 8.0 / ulWinDur / 1e6;
 
-    // You can append a summary line after each phase block:
+    // Summary line after each phase block:
     outFile << "\n  (Windowed) DL throughput: " << dlGoodputMbps << " Mbps\n";
     outFile << "  (Windowed) UL throughput: " << ulGoodputMbps << " Mbps\n";
 
